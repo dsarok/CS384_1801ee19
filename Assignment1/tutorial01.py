@@ -52,7 +52,3 @@ def printHP(a, d, n):
 	for i in app:
     		hp.append(1/i)
 	return hp
-
-print(printAP(2,3,4))
-print(printGP(2,3,4))
-print(printHP(2,3,4))
