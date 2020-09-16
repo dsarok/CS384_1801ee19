@@ -31,11 +31,11 @@ def printGP(a, r, n):
     		gp.append(a*power(r,i))
 	return gp 
 
-# def printAP(a, d, n): 
-# 	ap=[]
-# 	for i in range(0,n):
-#     		ap.append(a+i*d)
-# 	return ap
+def printAP(a, d, n): 
+	ap=[]
+	for i in range(0,n):
+    		ap.append(a+i*d)
+	return ap
 # def printHP(a, d, n): 
 # 	hp=[]
 # 	app=printAP(a,d,n)
