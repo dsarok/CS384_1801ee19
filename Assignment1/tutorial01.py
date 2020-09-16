@@ -36,9 +36,9 @@ def printAP(a, d, n):
 	for i in range(0,n):
     		ap.append(a+i*d)
 	return ap
-# def printHP(a, d, n): 
-# 	hp=[]
-# 	app=printAP(a,d,n)
-# 	for i in app:
-#     		hp.append(1/i)
-# 	return hp
+def printHP(a, d, n): 
+	hp=[]
+	app=printAP(a,d,n)
+	for i in app:
+    		hp.append(1/i)
+	return hp
