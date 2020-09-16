@@ -25,11 +25,11 @@ def power(num1, num2):
     		num3*=num1
     return num3     
 	
-# def printGP(a, r, n): 
-# 	gp=[]
-# 	for i in range(0,n):
-#     		gp.append(a*power(r,i))
-# 	return gp 
+def printGP(a, r, n): 
+	gp=[]
+	for i in range(0,n):
+    		gp.append(a*power(r,i))
+	return gp 
 
 # def printAP(a, d, n): 
 # 	ap=[]
