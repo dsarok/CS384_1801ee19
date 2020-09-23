@@ -37,16 +37,16 @@ def median(x):
    except:
        return 0
 # Function to compute Standard deviation. You cant use Python functions
-def standard_deviation(x):
-    try:
-        sumofsquare=0
-        for data in x:
-            sumofsquare+=(data-mean(x))*(data-mean(x))
-        sumofsquare=sumofsquare/len(x)
-        standard_deviation_value=mm.sqrt(sumofsquare)
-        return round((standard_deviation_value),3)
-    except:
-        return 0
+# def standard_deviation(x):
+#     try:
+#         sumofsquare=0
+#         for data in x:
+#             sumofsquare+=(data-mean(x))*(data-mean(x))
+#         sumofsquare=sumofsquare/len(x)
+#         standard_deviation_value=mm.sqrt(sumofsquare)
+#         return round((standard_deviation_value),3)
+#     except:
+#         return 0
 
 # Function to compute variance. You cant use Python functions
 # def variance(x):
