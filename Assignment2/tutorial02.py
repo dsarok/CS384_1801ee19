@@ -70,17 +70,17 @@ def rmse(x, y):
         return 0
 
 # Function to compute mse. You cant use Python functions
-def mse(x, y):
-    try:
-        diff=0
-        if len(x)!=len(y):
-            return 0
-        for d in range(len(x)):
-            diff+=(x[d]-y[d])*((x[d]-y[d]))
-        mse_value=diff/len(x)
-        return round(mse_value,3)
-    except:
-        return 0
+# def mse(x, y):
+#     try:
+#         diff=0
+#         if len(x)!=len(y):
+#             return 0
+#         for d in range(len(x)):
+#             diff+=(x[d]-y[d])*((x[d]-y[d]))
+#         mse_value=diff/len(x)
+#         return round(mse_value,3)
+#     except:
+#         return 0
 
 
 # Function to compute mae. You cant use Python functions
