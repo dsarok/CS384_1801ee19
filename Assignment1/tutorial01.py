@@ -1,10 +1,15 @@
 # Function to add two numbers 
 def add(num1, num2): 
-	addition = num1 + num2
+	addition=0
+	try:
+		addition = num1 + num2
+	except:
+		addition=0
 	return addition
 
 # Function to subtract two numbers 
 def subtract(num1, num2): 
+	subtract=0
 	subtraction = num1 - num2
 	return subtraction
 
