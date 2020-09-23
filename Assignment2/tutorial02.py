@@ -56,18 +56,18 @@ def variance(x):
        return 0
 
 # Function to compute RMSE. You cant use Python functions
-def rmse(x, y):
-    try:
-        diff=0
-        if len(x)!=len(y):
-            return 0
-        for z in range(len(x)):
-            diff+=(x[z]-y[z])*(x[z]-y[z])
-        rmse_value=diff/len(x)
-        rmse_value=mm.sqrt(rmse_value)
-        return round(rmse_value,3)
-    except:
-        return 0
+# def rmse(x, y):
+#     try:
+#         diff=0
+#         if len(x)!=len(y):
+#             return 0
+#         for z in range(len(x)):
+#             diff+=(x[z]-y[z])*(x[z]-y[z])
+#         rmse_value=diff/len(x)
+#         rmse_value=mm.sqrt(rmse_value)
+#         return round(rmse_value,3)
+#     except:
+#         return 0
 
 # Function to compute mse. You cant use Python functions
 # def mse(x, y):
