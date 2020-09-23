@@ -113,21 +113,21 @@ def nse(x, y):
         return 0
 
 # Function to compute Pearson correlation coefficient. You cant use Python functions
-def pcc(x, y):
-    try:
-        if len(x)!=len(y):
-            return 0
-        diff1=0
-        diff2=0
-        diff3=0
-        for i in range(len(x)):
-            diff1+=(x[i]-mean(x))*(y[i]-mean(y))
-            diff2+=(x[i]-mean(x))*(x[i]-mean(x))
-            diff3+=(y[i]-mean(y))*(y[i]-mean(y))
-        pcc_value=diff1/(mm.sqrt(diff2)*(mm.sqrt(diff3)))
-        return round(pcc_value,3)
-    except:
-        return 0
+# def pcc(x, y):
+#     try:
+#         if len(x)!=len(y):
+#             return 0
+#         diff1=0
+#         diff2=0
+#         diff3=0
+#         for i in range(len(x)):
+#             diff1+=(x[i]-mean(x))*(y[i]-mean(y))
+#             diff2+=(x[i]-mean(x))*(x[i]-mean(x))
+#             diff3+=(y[i]-mean(y))*(y[i]-mean(y))
+#         pcc_value=diff1/(mm.sqrt(diff2)*(mm.sqrt(diff3)))
+#         return round(pcc_value,3)
+#     except:
+#         return 0
 
 # Function to compute Skewness. You cant use Python functions
 # def skewness(x):
