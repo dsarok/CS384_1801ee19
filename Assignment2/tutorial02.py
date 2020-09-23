@@ -175,12 +175,12 @@ def kurtosis(x):
         return 0
 
 # Function to compute sum. You cant use Python functions
-def summation(x):
-    try:
-        diff=0
-        for i in x:
-            diff+=i
-        summation_value=diff
-        return round(summation_value,3)
-    except:
-        return 0
+# def summation(x):
+#     try:
+#         diff=0
+#         for i in x:
+#             diff+=i
+#         summation_value=diff
+#         return round(summation_value,3)
+#     except:
+#         return 0
