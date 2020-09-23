@@ -22,20 +22,20 @@ def mean(x):
 
 # Function to compute median. You cant use Python functions
 
-c=sorted(x).copy()
-def median(x):
-   try:
-
-       if len(x)%2==0:
-           median_value=(c[len(x)/2]+c[(len(x)/2)-1])/2
-           return round(median_value, 3)
-       else:
-           t=int(len(x)/2)
-           median_value=(c[t])
-           return round(median_value, 3)
-
-   except:
-       return 0
+# c=sorted(x).copy()
+#  def median(x):
+#    try:
+#
+#        if len(x)%2==0:
+#            median_value=(c[len(x)/2]+c[(len(x)/2)-1])/2
+#            return round(median_value, 3)
+#        else:
+#            t=int(len(x)/2)
+#            median_value=(c[t])
+#            return round(median_value, 3)
+#
+#    except:
+#        return 0
 # Function to compute Standard deviation. You cant use Python functions
 # def standard_deviation(x):
 #     try:
