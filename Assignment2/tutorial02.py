@@ -130,24 +130,24 @@ def pcc(x, y):
         return 0
 
 # Function to compute Skewness. You cant use Python functions
-def skewness(x):
-    try:
-        total = 0
-        mean_value = 0
-        try:
-            for val in x:
-                total = total + val
-                mean_value = total / len(x)
-        except:
-            mean_value = 0
-        diff=0
-        for i in x:
-            diff+=((i-mean(x))/standard_deviation(x))*((i-mean(x))/standard_deviation(x))*((i-mean(x))/standard_deviation(x))
-        diff=diff/len(x)
-        skewness_value=diff
-        return round(skewness_value,3)
-    except:
-        return  0
+# def skewness(x):
+#     try:
+#         total = 0
+#         mean_value = 0
+#         try:
+#             for val in x:
+#                 total = total + val
+#                 mean_value = total / len(x)
+#         except:
+#             mean_value = 0
+#         diff=0
+#         for i in x:
+#             diff+=((i-mean(x))/standard_deviation(x))*((i-mean(x))/standard_deviation(x))*((i-mean(x))/standard_deviation(x))
+#         diff=diff/len(x)
+#         skewness_value=diff
+#         return round(skewness_value,3)
+#     except:
+#         return  0
 # def sorting(x):
 #     try:
 #         c = x.copy()
