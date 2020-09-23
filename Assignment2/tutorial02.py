@@ -148,19 +148,19 @@ def skewness(x):
         return round(skewness_value,3)
     except:
         return  0
-def sorting(x):
-    try:
-        c = x.copy()
-        for a in range(len(x)):
-            for b in range(len(x) - 1):
-                if (x[b] > x[b + 1]):
-                    z = x[b]
-                    x[b] = x[b + 1]
-                    x[b + 1] = z
-        sorted_list=c.copy()
-        return round(sorted_list,3)
-    except:
-        return 0
+# def sorting(x):
+#     try:
+#         c = x.copy()
+#         for a in range(len(x)):
+#             for b in range(len(x) - 1):
+#                 if (x[b] > x[b + 1]):
+#                     z = x[b]
+#                     x[b] = x[b + 1]
+#                     x[b + 1] = z
+#         sorted_list=c.copy()
+#         return round(sorted_list,3)
+#     except:
+#         return 0
 
 # Function to compute Kurtosis. You cant use Python functions
 # def kurtosis(x):
