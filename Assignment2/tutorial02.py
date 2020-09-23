@@ -84,18 +84,18 @@ def mse(x, y):
 
 
 # Function to compute mae. You cant use Python functions
-def mae(x, y):
-    try:
-        diff = 0
-        sz=len(x)
-        if len(x)!=len(y):
-            return 0
-        for d in range(sz):
-            diff += abs(x[d] - y[d])
-        mae_value = diff / len(x)
-        return round(mae_value,3)
-    except:
-        return 0
+# def mae(x, y):
+#     try:
+#         diff = 0
+#         sz=len(x)
+#         if len(x)!=len(y):
+#             return 0
+#         for d in range(sz):
+#             diff += abs(x[d] - y[d])
+#         mae_value = diff / len(x)
+#         return round(mae_value,3)
+#     except:
+#         return 0
 
 # Function to compute NSE. You cant use Python functions
 # def nse(x, y):
