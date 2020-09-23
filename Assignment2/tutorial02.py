@@ -49,11 +49,11 @@ def standard_deviation(x):
         return 0
 
 # Function to compute variance. You cant use Python functions
-def variance(x):
-   try:
-       return round(standard_deviation(x)*standard_deviation(x),3)
-   except:
-       return 0
+# def variance(x):
+#    try:
+#        return round(standard_deviation(x)*standard_deviation(x),3)
+#    except:
+#        return 0
 
 # Function to compute RMSE. You cant use Python functions
 # def rmse(x, y):
