@@ -98,19 +98,19 @@ def mae(x, y):
         return 0
 
 # Function to compute NSE. You cant use Python functions
-def nse(x, y):
-    try:
-        if len(x)!=len(y):
-            return 0
-        diff1=0
-        diff2=0
-        for l in range(len(x)):
-            diff1+=(x[l]-y[l])*(x[l]-y[l])
-            diff2+=(x[l]-mean(x))*(x[l]-mean(x))
-        nse_value=1-diff1/diff2
-        return round(nse_value,3)
-    except:
-        return 0
+# def nse(x, y):
+#     try:
+#         if len(x)!=len(y):
+#             return 0
+#         diff1=0
+#         diff2=0
+#         for l in range(len(x)):
+#             diff1+=(x[l]-y[l])*(x[l]-y[l])
+#             diff2+=(x[l]-mean(x))*(x[l]-mean(x))
+#         nse_value=1-diff1/diff2
+#         return round(nse_value,3)
+#     except:
+#         return 0
 
 # Function to compute Pearson correlation coefficient. You cant use Python functions
 # def pcc(x, y):
