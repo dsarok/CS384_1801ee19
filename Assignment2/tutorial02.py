@@ -163,16 +163,16 @@ def sorting(x):
         return 0
 
 # Function to compute Kurtosis. You cant use Python functions
-def kurtosis(x):
-    try:
-        diff = 0
-        for i in x:
-            diff += ((i - mean(x)) / standard_deviation(x))*((i - mean(x)) / standard_deviation(x))*((i - mean(x)) / standard_deviation(x))*((i - mean(x)) / standard_deviation(x))
-        diff = diff / len(x)
-        kurtosis_value=diff
-        return round(kurtosis_value,3)
-    except:
-        return 0
+# def kurtosis(x):
+#     try:
+#         diff = 0
+#         for i in x:
+#             diff += ((i - mean(x)) / standard_deviation(x))*((i - mean(x)) / standard_deviation(x))*((i - mean(x)) / standard_deviation(x))*((i - mean(x)) / standard_deviation(x))
+#         diff = diff / len(x)
+#         kurtosis_value=diff
+#         return round(kurtosis_value,3)
+#     except:
+#         return 0
 
 # Function to compute sum. You cant use Python functions
 # def summation(x):
