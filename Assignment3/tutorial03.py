@@ -187,10 +187,3 @@ def new_file_sort():
     sortedlist = sorted(data, key=operator.itemgetter(1))
     for x in sortedlist:
         writer.writerow(x)
-email_domain_extract()
-country()
-blood_group()
-state()
-gender()
-dob()
-course()
