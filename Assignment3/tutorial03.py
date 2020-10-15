@@ -2,6 +2,7 @@ import csv
 import re
 import  os
 import  operator
+import shutil
 directory=os.getcwd()+"/analytics"
 def std(x):
     if x == '01':
@@ -26,7 +27,7 @@ def course():
 
                        os.makedirs(directory + "/course/" + var)
                        f = open(
-                           directory + "/course/" + var + "/" + ri + "_" + str.lower(branch[1]) + "_" + var + ".csv",
+                           directory + "/course/" + var + "/" + ri +"_" + str.lower(branch[1]) + "_" + var + ".csv",
                            'a')
                        write = csv.writer(f)
                        write.writerow(['id','full_name','country','email','gender','dob','blood_group','state'])
@@ -187,3 +188,5 @@ def new_file_sort():
     sortedlist = sorted(data, key=operator.itemgetter(1))
     for x in sortedlist:
         writer.writerow(x)
+def del_create_analytics_folder():
+    shutil.rmtree('analytics')
