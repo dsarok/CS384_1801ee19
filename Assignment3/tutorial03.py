@@ -3,7 +3,6 @@ import re
 import  os
 import  operator
 directory=os.getcwd()+"/analytics"
-
 def std(x):
     if x == '01':
         return 'btech'
@@ -18,26 +17,44 @@ def course():
     with open('studentinfo_cs384.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
-            roll = re.split('[A-Z]+', row[0])
-            branch = (re.split('[0-9]+', row[0]))
-            try:
-               var =std( roll[0][-2:len(roll[0])])
-               a=str(roll[0][0:2])+"_"+str.lower(branch[1])+"_"+var+'.csv'
-               c=directory+"/course/"+str.lower(branch[1])+"/"+var
-               os.makedirs(c)
-               f=open(c+"/"+a+".csv",'a')
+                roll = re.split('[A-Z]+', row[0])
+                branch = (re.split('[0-9]+', row[0]))
+                try:
+                   var =str(std( roll[0][-2:len(roll[0])]))
+                   ri=roll[0][0]+roll[0][1]
+                   try:
 
+                       os.makedirs(directory + "/course/" + var)
+                       f = open(
+                           directory + "/course/" + var + "/" + ri + "_" + str.lower(branch[1]) + "_" + var + ".csv",
+                           'a')
+                       write = csv.writer(f)
+                       write.writerow(['id','full_name','country','email','gender','dob','blood_group','state'])
+                   except:
+                       pass
+                   aa=directory+"/course/"+(var)
+                   f=open(directory+"/course/"+var+"/"+ri+"_"+str.lower(branch[1])+"_"+var+".csv",'a')
+                   write=csv.writer(f)
+                   write.writerow(row)
 
-            except:
-                f=open(directory+"/course/"+"misc.csv",'a')
+                except:
+                    f=open(directory+"/course/"+"misc.csv",'a')
+                    write=csv.writer(f)
+                    write.writerow(row)
 
 def country():
+    c=directory+"/country"
+    try:
+        os.makedirs(c)
+    except:
+        pass
     with open('studentinfo_cs384.csv', 'r') as file:
         reader = csv.reader(file)
+        next(reader)
         for row in reader:
             country = str.lower(row[2])
             try:
-                f=open(directory+"/"+"country/"+country+".csv",'w')
+                f=open(directory+"/"+"country/"+country+".csv",'a')
                 writer=csv.writer(f)
                 writer.writerow(row)
             except:
@@ -45,59 +62,103 @@ def country():
 
 
 def email_domain_extract():
-    os.makedirs(directory+"/analytics/email_domain")
+    try:
+     os.makedirs(directory+"/email_domain")
+    except:
+     pass
     with open('studentinfo_cs384.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
 
             try:
                 x = (row[3].split('@'))
-                open(directory+"/email_domain/"+(x[1].split('.')[0])+".csv",'a')
-                print(x[1].split('.')[0])
+
+                f=open(directory+"/email_domain/"+(x[1].split('.')[0])+".csv",'a')
+
+                writer=csv.writer(f)
+                writer.writerow(row)
             except:
                 pass
 
 def gender():
-    os.makedirs(directory+'/gender')
-    open(directory+'/gender/'+'male.csv','w')
-    open(directory+'/gender/'+'female.csv','w')
-    pass
+    try:
+        os.makedirs(directory+'/gender')
+    except:
+        pass
+    with open('studentinfo_cs384.csv','r') as file:
+        reader=csv.reader(file)
+        next(reader)
+        for row in reader:
+            f=open(directory+'/gender/'+row[-4]+".csv",'a')
+            writer=csv.writer(f)
+            writer.writerow(row)
+
+
 
 
 def dob():
     filename=directory+'/dob'
-    os.makedirs(filename)
-    open(filename+'/bday_1995_1999.csv','w')
-    open(filename+'/bday_2000_2004.csv','w')
-    open(filename + '/bday_2005_2009.csv','w')
-    open(filename + '/bday_2010_2014.csv','w')
-    open(filename + '/bday_2015_2020.csv','w')
-
+    try:
+        os.makedirs(filename)
+    except:
+        pass
+    f1=open(filename+'/bday_1995_1999.csv','a')
+    f2=open(filename+'/bday_2000_2004.csv','a')
+    f3=open(filename + '/bday_2005_2009.csv','a')
+    f4=open(filename + '/bday_2010_2014.csv','a')
+    f5=open(filename + '/bday_2015_21995020.csv','a')
+    with open('studentinfo_cs384.csv','r') as file:
+        reader=csv.reader(file)
+        next(reader)
+        for row in reader:
+            x=row[-3]
+            y=x.split('-')[-1]
+            if y>='2015':
+                reader=csv.writer(f1)
+                reader.writerow(row)
+            elif y>='2010':
+                reader = csv.writer(f2)
+                reader.writerow(row)
+            elif y>='2005':
+                reader = csv.writer(f3)
+                reader.writerow(row)
+            elif y>='2000':
+                reader = csv.writer(f4)
+                reader.writerow(row)
+            elif y>='1995':
+                reader = csv.writer(f5)
+                reader.writerow(row)
 
 def state():
-   states=set()
-   with open('studentinfo_cs384.csv', 'r') as file:
+    try:
+        os.makedirs(directory + '/state')
+    except:
+        pass
+    with open('studentinfo_cs384.csv', 'r') as file:
        reader = csv.reader(file)
+       next(reader)
        for row in reader:
-           states.add(row[-1])
-   os.makedirs(directory+'/state')
-   for x in states:
-       t=directory+'/state/'+x+".csv"
-       open(t,'w')
+           states=(row[-1])
+           t=directory+'/state/'+states+".csv"
+           f=open(t,'a')
+           writer=csv.writer(f)
+           writer.writerow(row)
 
 
 def blood_group():
-    bloodgroup=set()
+    try:
+        os.makedirs(directory + '/blood_group')
+    except:
+        pass
     with open('studentinfo_cs384.csv', 'r') as file:
+
         reader = csv.reader(file)
         for row in reader:
-            bloodgroup.add(row[-2])
-    bloodgroup.remove('blood_group')
-    # os.makedirs(directory+"/blood_group")
-    for x in bloodgroup:
-        r=directory+"/blood_group/"+str.lower(x)+'.csv'
-        open(r,'w')
-
+            blood=(row[-2])
+            r=directory+"/blood_group/"+str.lower(blood)+'.csv'
+            f=open(r,'a')
+            writer=csv.writer(f)
+            writer.writerow(row)
 def new_file():
     with open('studentinfo_cs384_names_split.csv','w') as file:
         writer=csv.writer(file)
@@ -126,4 +187,10 @@ def new_file_sort():
     sortedlist = sorted(data, key=operator.itemgetter(1))
     for x in sortedlist:
         writer.writerow(x)
+email_domain_extract()
 country()
+blood_group()
+state()
+gender()
+dob()
+course()

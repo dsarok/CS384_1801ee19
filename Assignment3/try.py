@@ -5,3 +5,4 @@ with open('studentinfo_cs384.csv','r') as file:
     for row in reader:
         print(row)
 
+
