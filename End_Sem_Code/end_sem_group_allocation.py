@@ -93,13 +93,13 @@ def group_allocation(filename, number_of_groups):
         filenames = "Group_G" + (srop).zfill(2) + ".csv"
         datafile.to_csv(filenames)
     stats_file={}
-    stats_file['Group_no']=list()
+    stats_file['Group number']=list()
     stats_file['total']=list()
     for x in unique_branches:
         stats_file[x]=list()
     for x in range(number_of_groups):
         filenime='Group_G'+str(x+1).zfill(2)
-        stats_file['Group_no'].append(filenime)
+        stats_file['Group number'].append(filenime)
         total=0
         for y in unique_branches:
             stats_file[y].append(groupwisedistribution[y][x])
@@ -107,7 +107,7 @@ def group_allocation(filename, number_of_groups):
         stats_file['total'].append(total)
     datafiles=pd.DataFrame(stats_file)
 
-    datafiles.to_csv('Stats_Grouping.csv')
+    datafiles.to_csv('stats grouping.csv')
 
 
 filename = "Btech_2020_master_data.csv"
