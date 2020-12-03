@@ -23,11 +23,11 @@ def mean(x):
 # Function to compute median. You cant use Python functions
 
 c=sorted(x).copy()
- def median(x):
+def median(x):
    try:
 
        if len(x)%2==0:
-           median_value=(c[len(x)/2]+c[(len(x)/2)-1])/2
+           median_value=(c[int(len(x)/2)]+c[int(len(x)/2)-1])/2
            return round(median_value, 3)
        else:
            t=int(len(x)/2)
