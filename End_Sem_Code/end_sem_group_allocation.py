@@ -9,8 +9,6 @@ def group_allocation(filename, number_of_groups):
     for x in datafile['Roll']:
         if pattern.search(x):
             unique_branches.add(pattern.search(x).group(1))
-
-    print(unique_branches)
     files = dict()
     for x in unique_branches:
         files[x] = dict()
@@ -38,11 +36,13 @@ def group_allocation(filename, number_of_groups):
         new_files['Email'] = files[x]['Email'].copy()
         data = pd.DataFrame(new_files)
         data=data.sort_values(['Roll'])
+        data.reindex='Roll'
         data.to_csv(x + '.csv')
         datastrength['BRANCH_CODE'].append(x)
         datastrength['STRENGTH'].append(len(files[x]['Roll']))
 
     dataa = pd.DataFrame(datastrength)
+
     dataa = dataa.sort_values(['STRENGTH', 'BRANCH_CODE'])
 
     groupwisedistribution = {}
@@ -91,6 +91,7 @@ def group_allocation(filename, number_of_groups):
         datafile=datafile.sort_values('ROLL')
         srop=str(x+1)
         filenames = "Group_G" + (srop).zfill(2) + ".csv"
+        datafile.reindex='ROLL'
         datafile.to_csv(filenames)
     stats_file={}
     stats_file['Group number']=list()
@@ -113,5 +114,5 @@ def group_allocation(filename, number_of_groups):
 filename = "Btech_2020_master_data.csv"
 number_of_groups = 12
 
-
+print('he y')
 group_allocation(filename,number_of_groups)
