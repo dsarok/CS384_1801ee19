@@ -3,6 +3,18 @@ import os
 import bcrypt
 import pandas as pd
 import time
+import threading
+total_time_of_quiz=20
+ENDED=False
+Timeleft=True
+def counter(x):
+      global Timeleft
+      for x in range(x):
+            if ENDED:
+                  break
+            time.sleep(1)
+      Timeleft=False
+      print('TEST HAS ENDED')
 conn=sqlite3.connect('student.db')
 c=conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS students(
@@ -13,9 +25,6 @@ c.execute('''CREATE TABLE IF NOT EXISTS students(
  )''')
 ROLLNO=0
 NAME=''
-# c.execute("INSERT INTO students values('ram','jai_shree_ram')")
-# c.execute('''INSERT INTO students VALUES ('jaishreeram','jaishreeram')''')
-# x=c.execute('''SELECT * FROM students''')
 conn.commit()
 print('Choose your options')
 name=''
@@ -78,7 +87,6 @@ while True:
                         input()
 quizno=input('Enter the value of quiz number')
 quizfilename='quiz_wise_questions/'+'q'+quizno+'.csv'
-
 datfile=pd.read_csv(quizfilename)
 questions=datfile['question']
 compulsary=datfile['compulsory']
@@ -97,7 +105,13 @@ unattempted=0
 totalmarks=0
 for x in answers:
       totalmarks+=int(x)
+print('YOU HAVE ',total_time_of_quiz,' seconds left')
+t1=threading.Thread(target=counter,args=(total_time_of_quiz,))
+t1.start()
+
 for x in range(len(compulsary)):
+      if Timeleft == False:
+            break
       os.system('clear')
       print('Roll no: ',ROLLNO,' Name :',NAME)
       print('Unattempted Questions',unattempted)
@@ -127,6 +141,7 @@ for x in range(len(compulsary)):
       else:
             response.append('s')
       print('totalmarks',totalmrks)
+ENDED=True
 print(response,totalmrks)
 print(NAME,ROLLNO)
 TABLENAME='''CREATE TABLE IF NOT EXISTS project1_marks(
@@ -151,5 +166,4 @@ dataframe=pd.DataFrame.from_dict(rollnowise,orient='index')
 dataframe=dataframe.transpose()
 filename='q'+str(quizno)+str(ROLLNO)+".csv"
 dataframe.to_csv(filename)
-
 conn.close()
