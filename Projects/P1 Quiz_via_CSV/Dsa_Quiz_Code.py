@@ -56,7 +56,7 @@ while True:
                         hashed_passcode = bcrypt.hashpw(passcode, bcrypt.gensalt())
                         c.execute('''INSERT INTO students(username,passcode) VALUES(?,?)''',(name,hashed_passcode))
                         conn.commit()
-                        print('OK now new account created with username {} and password {}'.format(name,str(passcode)))
+                        print('OK now new account created with username {} and password {}'.format(name,str(passcode2)))
                         input('NOW GO TO LOG IN PORTAL by pressing any key')
                         os.system('cls')
                         option='1'
