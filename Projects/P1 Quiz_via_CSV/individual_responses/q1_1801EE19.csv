@@ -1,0 +1,6 @@
+,quiz_question,option1,option2,option3,option4,correct_option,positive marks,negative marks,response,Legend,Total
+0,What is the capital of India,Mumbai,Chennai,New Delhi,Kolkata,3.0,5.0,-1.0,3,correctchoice,1
+1,4+4 =,4,7,9,8,4.0,4.0,-1.0,1,wrongchoice,2
+2,Capital of France,Paris,Patna,Amhara,London,1.0,8.0,-2.0,2,unattempted,0
+3,,,,,,,,,,marks,2
+4,,,,,,,,,,fullmarks,17
