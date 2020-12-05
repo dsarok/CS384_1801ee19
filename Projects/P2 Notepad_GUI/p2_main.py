@@ -1,14 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename, asksaveasfile
-import threading
-import time
 import re
-'''from ctypes import *
-
-sum = CDLL('/home/manjunath/libsum.so')  #UTF-8 to UNICODE
-sum.our_function.argtypes = [c_int, c_char_p]
-sum.our_function.restype = c_char_p
-'''
 
 
 def about():
@@ -165,80 +157,6 @@ def undo():
     global undo_list, text
     text = undo_list.pop()
 
-
-def heapify(match_list, n, i):
-    largest = i  # Initialize largest as root
-    l = 2 * i + 1  # left = 2*i + 1
-    r = 2 * i + 2  # right = 2*i + 2
-
-    if l < n and match_list[i] < match_list[l]:
-        largest = l
-
-    if r < n and match_list[largest] < match_list[r]:
-        largest = r
-
-    # Change root, if needed
-    if largest != i:
-        match_list[i], match_list[largest] = match_list[largest], match_list[i]  # swap
-
-        heapify(match_list, n, largest)
-
-
-def heapSort(match_list):
-    n = len(match_list)
-    # Build a maxheap.
-    for i in range(n, -1, -1):
-        heapify(match_list, n, i)
-    # One by one extract elements
-    for i in range(n - 1, 0, -1):
-        match_list[i], match_list[0] = match_list[0], match_list[i]  # swap
-        heapify(match_list, i, 0)
-
-
-def drop_suggest(*args):
-    var_value = var.get()
-    global Text
-    txt = ''
-    i = len(txt) - 1
-    for i in text_list:
-        txt += i + ' '
-    txt += var.get()
-    text.delete(0.0, END)
-    text.insert(0.0, txt)
-    w.destroy()
-
-
-def suggest():
-    global text, var, text_list, w
-    text_list = text.get(0.0, END).split(" ")
-    last_word = text_list.pop()
-    last_word = last_word[:-1]
-    fp = open("dictionary.txt", "a+")
-    for i in text_list:
-        fp.write(i + ' ')
-
-    match_list = []
-    fp.seek(0)
-    for i in fp.read().split(" "):
-        if '\n' in i:
-            v = i.split("\n")
-            for k in v:
-                if k is not '':
-                    match_list.append(k)
-            continue
-        if last_word in i:
-            match_list.append(i)
-    match_list = list(set(match_list))
-    var = StringVar(root)
-    if len(match_list) != 0:
-        heapSort(match_list)
-        var.set(match_list[0])
-        var.trace('w', drop_suggest)
-        w = OptionMenu(root, var, *match_list)
-        w.pack()
-    fp.close()
-
-
 def drop_style(*args):
     txt = text.get(0.0, END)
     text.delete(0.0, END)
@@ -326,7 +244,7 @@ Editmenu.add_command(label="Font Size", command=font_size)
 
 Searchmenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Search", menu=Searchmenu)
-Searchmenu.add_command(label="Suggest", command=suggest)
+
 Searchmenu.add_command(label="Find", command=find_button)
 Searchmenu.add_command(label="Find and Replace", command=replace_button)
 
@@ -337,11 +255,3 @@ helpmenu.add_command(label="About...", command=about)
 root.config(menu=menubar)
 root.mainloop()
 
-'''def our_function(numbers):
-  num_numbers = len(numbers)
-  #array_type = c_char_p(numbers)
-  #print(type(array_type))
-  _result = sum.our_function(num_numbers,numbers)
-  return(_result.value)
-print(our_function("abc"))
-'''
