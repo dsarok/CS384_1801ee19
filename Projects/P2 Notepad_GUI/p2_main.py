@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename, asksaveasfile
 import re
-
-
 def about():
     filewin = Toplevel(root)
     string = "This is a small text editor built using Tkinter a python which supports GUI programming\n"
@@ -10,8 +8,6 @@ def about():
     string += "Small, easy to use and works like the future of text editors \n"
     button = Label(filewin, text=string)
     button.pack()
-
-
 def open_file():
     global text, save_file_id
     open_file_loc = askopenfilename()
@@ -19,8 +15,6 @@ def open_file():
     text.delete(1.0, END)
     text.insert(END, open_file.read())
     save_file_id = open_file_loc
-
-
 def save_as_file():
     global text, save_file_id
     name = asksaveasfile(mode='w', defaultextension=".txt")
@@ -28,8 +22,6 @@ def save_as_file():
     name.write(text2save)
     name = str(name)[(str(name).find("name='") + 6):str(name).find("'", (str(name).find("name='") + 6))]
     save_file_id = name
-
-
 def save_file():
     global text, save_file_id
     if save_file_id == "":
@@ -37,13 +29,9 @@ def save_file():
     else:
         with open(save_file_id, 'w') as f:
             f.write(text.get(0.0, END))
-
-
 def New_file():
     text.delete(1.0, END)
     save_file_id = ' '
-
-
 def find_destroy():
     global keyword
     text.tag_remove(keyword, 0.0, END)
@@ -51,8 +39,6 @@ def find_destroy():
     label1.destroy()
     button1.destroy()
     button2.destroy()
-
-
 def find_button():
     global search_box, label1, button1, button2
     label1 = Label(text="						")
@@ -63,8 +49,6 @@ def find_button():
     button1.pack(side=LEFT)
     button2 = Button(root, text="X", command=find_destroy)
     button2.pack(side=LEFT)
-
-
 def Find():
     global keyword
     keyword = search_box.get(0.0, END)
@@ -94,8 +78,6 @@ def Find():
             i_p = 0
         j = 0
         i += 1
-
-
 def replace_button():
     global search_box, button2, replace_box, label1, label2
     label1 = Label(text="Find")
@@ -108,8 +90,6 @@ def replace_button():
     replace_box.pack(side=LEFT)
     button2 = Button(root, text="Replace", command=Replace)
     button2.pack(side=LEFT)
-
-
 def Replace():
     keyword = search_box.get(0.0, END)
     replace_word = replace_box.get(0.0, END)
